@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inventario</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<img src="img/logo.png" alt="Logo La Rebaja" class="img-logo">
+	<br>
+	<div class="container mt-4">
+		<a href="/" class="btn btn-primary">Volver a la página principal</a> <br>
+		<br>
+		<h1>Seleccione una sucursal:</h1>
+		<form action="/MostrarInventario" method="get">
+			<select name="sucursalId" class="form-select">
+				<option th:each="sucursal : ${sucursalesInventario}" th:value="${sucursal.id}"
+					th:text="${sucursal.direccion}"></option>
+			</select> <br>
+			<button type="submit" class="btn btn-primary mt-2">Mostrar
+				Inventario De Sucursal</button>
+			<br>
+		</form>
+
+		<h1>Listar Todos Los Productos:</h1>
+		<form action="/ListarInventario" method="get">
+			<button type="submit" class="btn btn-primary mt-2">Mostrar</button>
+		</form>
+		<br>
+
+		<table class="table table-striped">
+			<thead class="table-danger">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Cantidad</th>
+					<th scope="col">Precio Unitario</th>
+					<th scope="col">Costo Unitario</th>
+					<th scope="col">Producto</th>
+					<th scope="col">Sucursal</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="listarinventario: ${listarinventario}">
+					<td th:text="${listarinventario.id}"></td>
+					<td th:text="${listarinventario.cantidad}"></td>
+					<td th:text="${listarinventario.precioUnitario}"></td>
+					<td th:text="${listarinventario.costoUnitario}"></td>
+					<td th:text="${listarinventario.idProducto.nombre}"></td>
+					<td th:text="${listarinventario.idSucursal.direccion}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,18 @@
+
+.btn-primary {
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.table {
+  color: red;
+}
+
+.img-logo {
+  width: 200px;
+}
+.table tbody tr {
+    color: black;
+}
+

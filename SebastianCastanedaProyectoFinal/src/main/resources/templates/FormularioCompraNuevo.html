@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Formulario de Compra</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<div class="container mt-4">
+		<form action="/guardarCompraNueva" method="POST">
+			<div class="mb-3">
+				<label for="cantidad" class="form-label">Cantidad:</label> <input
+					type="number" class="form-control" id="cantidad" name="cantidad"
+					required>
+			</div>
+			<div class="mb-3">
+				<label for="costo_unitario" class="form-label">Costo
+					Unitario:</label> <input type="number" class="form-control"
+					id="costo_unitario" name="costo_unitario" required>
+			</div>
+			<div class="mb-3">
+				<label for="proveedor" class="form-label">Proveedor:</label> <select
+					class="form-select" id="proveedor" name="proveedor" required>
+					<option th:each="ListaProveedores: ${ListaProveedores}"
+						th:value="${ListaProveedores.id}"
+						th:text="${ListaProveedores.nombre}"></option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label for="producto" class="form-label">Producto:</label> <select
+					class="form-select" id="producto" name="producto" required>
+					<option th:each="ListaProductos: ${ListaProductos}"
+						th:value="${ListaProductos.id}" th:text="${ListaProductos.nombre}"></option>
+				</select>
+			</div>
+			<div class="mb-3">
+				<label for="sucursal" class="form-label">Sucursal:</label> <select
+					class="form-select" id="sucursal" name="sucursal" required>
+					<option th:each="ListaSucursales: ${ListaSucursales}"
+						th:value="${ListaSucursales.id}"
+						th:text="${ListaSucursales.direccion}"></option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</form>
+
+	</div>
+</body>
+</html>
+
+
