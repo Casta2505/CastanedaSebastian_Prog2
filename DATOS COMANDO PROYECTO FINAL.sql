@@ -113,6 +113,7 @@ INSERT INTO empleados VALUES (57,1458768455,'Andres Cepeda',1);
 INSERT INTO empleados VALUES (58,1852468252,'Elon Musk',2);
 INSERT INTO empleados VALUES (59,1568585867,'Eduard Velandia',1);
 INSERT INTO empleados VALUES (60,1548465785,'Irene Rodriguez',3);
+INSERT INTO empleados VALUES (61,1134578893,'Selene Delgado Lopez',1);
 
 INSERT INTO proveedores VALUES (1,800138319,'Banco Nacional De Medicamentos');
 INSERT INTO proveedores VALUES (2,900274326,'Stock Pharmacia S.A.S');
@@ -201,12 +202,9 @@ INSERT INTO sucursal_empleado VALUES (57,57,17);
 INSERT INTO sucursal_empleado VALUES (58,58,18);
 INSERT INTO sucursal_empleado VALUES (59,59,19);
 INSERT INTO sucursal_empleado VALUES (60,60,20);
+INSERT INTO sucursal_empleado VALUES (61,61,1);
 
-SELECT * FROM  productos;
-SELECT * FROM inventarios;
-
-DROP TABLE inventarios;
-DROP TABLE inventarios_seq;
-
-
-
+INSERT INTO inventarios VALUES (1,2,3500,3500,1,2);
+INSERT INTO inventarios VALUES (2,2,43500,43500,2,3);
+INSERT INTO inventarios VALUES (3,2,34500,34500,3,3);
+INSERT INTO inventarios VALUES (4,2,7600,7600,4,5);
