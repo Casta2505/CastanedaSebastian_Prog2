@@ -4,7 +4,6 @@
 
 Administración de Productos, Sucursales, Inventarios, Compras y Ventas de Droguerías La Rebaja creado en Java.
 Este es un proyecto creado con SpringBoot, conectado con base de datos de SQL y Thymeleaf para relacionar el frontend con el backend.
-<image src="[/images/picture.jpg](https://www.google.com/url?sa=i&url=https%3A%2F%2Flogos-world.net%2Fjava-logo%2F&psig=AOvVaw0xn-HdHoP7zf0gnBwWC1IE&ust=1686187761322000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDg_4aBsP8CFQAAAAAdAAAAABAD)" alt="imagen">
 
 ## Uso
 
