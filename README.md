@@ -9,8 +9,8 @@ Este es un proyecto creado con SpringBoot, conectado con base de datos de SQL y 
 
 Sigue los siguientes pasos para entender el funcionamiento del programa:
 
-1. Tienes que usar la url localhost:8080/ para acceder a la pagina de inicio
-![imagen1](![image](https://github.com/Casta2505/CastanedaSebastian_Prog2/assets/88518022/aac24ef3-c244-4012-b118-54c66ca9c3e0))
+1. Tienes que usar la url ```shelllocalhost:8080/ ```para acceder a la pagina de inicio
+3. Luego, procura no usar los botones de tu navegador para devolverse, ya que podria generar algun conflicto, !Usa los Botones¡
+4. Cada vez que haces un envio al sistema como comprar o vender, te redireccionara al inicio asi que tienes que listar de nuevo los elementos para visualizar los cambios
 
-```shell
-git clone https://github.com/tu-usuario/tu-repositorio.git
+
