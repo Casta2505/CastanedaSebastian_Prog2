@@ -16,5 +16,6 @@ Sigue los siguientes pasos para entender el funcionamiento del programa:
 ## Importante
 1. Si no te inicia el servidor y te sale un error en la consola, probablemente sea que necesitas actualizar las dependencias de Maven.
 2. Si estas haciendo una compra o venta y cierras la pagina, los datos no se guardaran hasta que le des al boton de comprar o vender respectivamente.
+3. Si por alguna razon se borran las tablas de la base de datos del sql, tienes el archivo con los datos principales para el funcionamiento, solo es que los coloques en un editor sql y ya tendrias los datos iniciales y necesarios.
 
 
