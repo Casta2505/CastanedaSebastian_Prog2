@@ -13,7 +13,7 @@ public interface InventarioRepository extends CrudRepository<Inventario, Integer
 	
 	public List<Inventario> findAll();
 	
-	public List<Inventario> findByIdProductoAndIdSucursal(Producto producto, Sucursal sucursal);
+	public Optional<Inventario> findByIdProductoAndIdSucursal(Producto producto, Sucursal sucursal);
 	
 	public Optional<Inventario> findById(Integer id);
 	

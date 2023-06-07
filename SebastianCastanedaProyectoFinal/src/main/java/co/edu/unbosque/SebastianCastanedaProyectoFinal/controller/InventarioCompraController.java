@@ -90,43 +90,47 @@ public class InventarioCompraController {
 	}
 
 	@PostMapping("/guardarCompraNueva")
-	public String saveCompra(@RequestParam("cantidad") Integer cantidad,
-			@RequestParam("costo_unitario") Double costoUnitario, @RequestParam("proveedor") Integer proveedorId,
-			@RequestParam("producto") Integer productoId, @RequestParam("sucursal") Integer sucursalId, Model model) {
+	public String saveCompra(@RequestParam("cantidad") Integer cantidad,@RequestParam("costo_unitario") Double costoUnitario, @RequestParam("proveedor") Integer proveedorId,@RequestParam("producto") Integer productoId, @RequestParam("sucursal") Integer sucursalId, Model model) {
 		try {
-			Inventario inventario = new Inventario();
-			inventario.setCantidad(cantidad);
-			inventario.setCostoUnitario(costoUnitario);
+			Optional<Sucursal> s = daoSucursalRepository.findById(sucursalId);
+			Optional<Producto> p = daoProductoRepository.findById(productoId);
+			Optional<Inventario> inventarioop = daoInventarioRepository.findByIdProductoAndIdSucursal(p.get(), s.get());
+			if(inventarioop.isPresent()) {
+				return "Inicio";
+			}else {
+				Inventario inventario = new Inventario();
+				inventario.setCantidad(cantidad);
+				inventario.setCostoUnitario(costoUnitario);
 
-			Optional<Producto> productoop = daoProductoRepository.findById(productoId);
-			Producto producto = productoop.get();
-			inventario.setIdProducto(producto);
+				Optional<Producto> productoop = daoProductoRepository.findById(productoId);
+				Producto producto = productoop.get();
+				inventario.setIdProducto(producto);
 
-			Optional<Sucursal> sucursalop = daoSucursalRepository.findById(sucursalId);
-			Sucursal sucursal = sucursalop.get();
-			inventario.setIdSucursal(sucursal);
+				Optional<Sucursal> sucursalop = daoSucursalRepository.findById(sucursalId);
+				Sucursal sucursal = sucursalop.get();
+				inventario.setIdSucursal(sucursal);
 
-			inventario.setPrecioUnitario(costoUnitario * 1.3);
+				inventario.setPrecioUnitario(costoUnitario * 1.3);
 
-			daoInventarioRepository.save(inventario);
-			Inventario inventarioGuardado = daoInventarioRepository
-					.findAllByIdSucursalAndIdProductoAndCantidad(sucursal, producto, cantidad);
+				daoInventarioRepository.save(inventario);
+				Inventario inventarioGuardado = daoInventarioRepository.findAllByIdSucursalAndIdProductoAndCantidad(sucursal, producto, cantidad);
 
-			InventarioCompra inventarioCompra = new InventarioCompra();
-			inventarioCompra.setCantidad(cantidad);
-			inventarioCompra.setCostoUnitario(costoUnitario);
+				InventarioCompra inventarioCompra = new InventarioCompra();
+				inventarioCompra.setCantidad(cantidad);
+				inventarioCompra.setCostoUnitario(costoUnitario);
 
-			Compra compra = new Compra();
-			compra.setFecha(new Date());
-			Optional<Proveedor> proveedorop = daoProveedorRepository.findById(proveedorId);
-			Proveedor proveedor = proveedorop.get();
-			compra.setIdProveedor(proveedor);
-			inventarioCompra.setIdCompra(compra);
-			daoCompraRepository.save(compra);
+				Compra compra = new Compra();
+				compra.setFecha(new Date());
+				Optional<Proveedor> proveedorop = daoProveedorRepository.findById(proveedorId);
+				Proveedor proveedor = proveedorop.get();
+				compra.setIdProveedor(proveedor);
+				inventarioCompra.setIdCompra(compra);
+				daoCompraRepository.save(compra);
 
-			inventarioCompra.setIdInventario(inventarioGuardado);
+				inventarioCompra.setIdInventario(inventarioGuardado);
 
-			daoInventarioCompraRepository.save(inventarioCompra);
+				daoInventarioCompraRepository.save(inventarioCompra);
+			}
 		} catch (Exception e) {
 			return "Inicio";
 		}

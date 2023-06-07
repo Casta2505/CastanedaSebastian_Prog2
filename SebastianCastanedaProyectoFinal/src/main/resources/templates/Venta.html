@@ -16,9 +16,9 @@
 		<a href="/" class="btn btn-primary">Volver a la página principal</a> <br>
 		<br>
 		<h1>Seleccione una sucursal:</h1>
-		<form action="/ListarInventarioPorSucursalVenta" method="get">
-			<select name="sucursalId" class="form-select">
-				<option th:each="sucursal : ${sucursales}" th:value="${sucursal.id}"
+		<form action="/MostrarInventarioVenta" method="get">
+			<select name="sucursalV" class="form-select">
+				<option th:each="sucursal : ${sucursalVenta}" th:value="${sucursal.id}"
 					th:text="${sucursal.direccion}"></option>
 			</select> <br>
 			<button type="submit" class="btn btn-primary mt-2">Mostrar

@@ -4,13 +4,10 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import co.edu.unbosque.SebastianCastanedaProyectoFinal.model.Inventario;
-import co.edu.unbosque.SebastianCastanedaProyectoFinal.model.Producto;
-import co.edu.unbosque.SebastianCastanedaProyectoFinal.model.Sucursal;
+import co.edu.unbosque.SebastianCastanedaProyectoFinal.model.InventarioVenta;
 
-public interface InventarioVentaRepository extends CrudRepository<Inventario, Integer>{
-	
-	public List<Inventario> findAll();
-	
-	public List<Inventario> findByIdProductoAndIdSucursal(Producto producto, Sucursal sucursal);
+public interface InventarioVentaRepository extends CrudRepository<InventarioVenta, Integer>{
+
+    public List<InventarioVenta> findAll();
+
 }

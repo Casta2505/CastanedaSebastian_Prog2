@@ -30,7 +30,5 @@ public class Cargo {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	
-	
-	
+
 }
